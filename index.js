@@ -1,8 +1,10 @@
-// index.js
-
 import fetch from 'node-fetch';
+import express from 'express';
 
-export default async function handler(req, res) {
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/api', async (req, res) => {
   const { url } = req.query;
 
   if (!url) {
@@ -23,4 +25,8 @@ export default async function handler(req, res) {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-}
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
