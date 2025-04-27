@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const snapinstaUrl = `https://snapinsta.app/api/ajaxSearch?query=${encodeURIComponent(url)}`;
+    const snapinstaUrl = `https://snapinsta.io/api/ajaxSearch?query=${encodeURIComponent(url)}`;
     const response = await fetch(snapinstaUrl, {
       method: 'GET',
       headers: {
